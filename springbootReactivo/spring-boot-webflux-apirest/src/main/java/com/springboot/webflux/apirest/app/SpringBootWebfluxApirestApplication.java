@@ -1,5 +1,8 @@
-package webflux.udemy.com.co.springbootwebflux;
+package com.springboot.webflux.apirest.app;
 
+import com.springboot.webflux.apirest.app.models.documents.Categoria;
+import com.springboot.webflux.apirest.app.models.documents.Producto;
+import com.springboot.webflux.apirest.app.services.ProductoService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,16 +11,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.data.mongodb.core.ReactiveMongoTemplate;
 import reactor.core.publisher.Flux;
-import webflux.udemy.com.co.springbootwebflux.models.documents.Categoria;
-import webflux.udemy.com.co.springbootwebflux.models.documents.Producto;
-import webflux.udemy.com.co.springbootwebflux.services.ProductoService;
 
 import java.util.Date;
 
 @SpringBootApplication
-public class SpringBootWebfluxApplication implements CommandLineRunner {
+public class SpringBootWebfluxApirestApplication implements CommandLineRunner {
 
-    private static final Logger log = LoggerFactory.getLogger(SpringBootWebfluxApplication.class);
+    private static final Logger log = LoggerFactory.getLogger(SpringBootWebfluxApirestApplication.class);
 
     @Autowired
     private ProductoService productoService;
@@ -25,12 +25,11 @@ public class SpringBootWebfluxApplication implements CommandLineRunner {
     private ReactiveMongoTemplate reactiveMongoTemplate;
 
     public static void main(String[] args) {
-        SpringApplication.run(SpringBootWebfluxApplication.class, args);
+        SpringApplication.run(SpringBootWebfluxApirestApplication.class, args);
     }
 
     @Override
     public void run(String... args) throws Exception {
-
         reactiveMongoTemplate.dropCollection("productos").subscribe();
         reactiveMongoTemplate.dropCollection("categorias").subscribe();
 

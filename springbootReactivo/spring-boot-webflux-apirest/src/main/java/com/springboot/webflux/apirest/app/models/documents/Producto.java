@@ -1,4 +1,4 @@
-package webflux.udemy.com.co.springbootwebflux.models.documents;
+package com.springboot.webflux.apirest.app.models.documents;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
